@@ -1,14 +1,21 @@
-# ADK Basic Agent Example
+# ADK Bug Reproduction - Issue #4249
 
-A simple demonstration of Google's Agent Development Kit (ADK) showing how to create a basic agent with custom tools and Azure OpenAI integration.
+This repository reproduces a bug encountered with Google's Agent Development Kit (ADK) related to custom tool execution and response handling.
+
+## Bug Description
+
+This minimal reproducible example demonstrates an issue where:
+- Custom tools return formatted strings
+- Agent response handling may not properly process tool outputs
+- Session management with custom tools shows unexpected behavior
 
 ## Overview
 
-This project demonstrates:
-- Creating a basic ADK agent with custom tools
-- Integrating with Azure OpenAI using LiteLLM
-- Using in-memory session management
-- Custom function calling with simple arithmetic operations
+This reproduction case includes:
+- A basic ADK agent with a custom `add` function
+- Azure OpenAI integration via LiteLLM
+- In-memory session management
+- Minimal code to isolate the bug behavior
 
 ## Prerequisites
 
@@ -20,8 +27,8 @@ This project demonstrates:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/dineshkrishna9999/reproduce-adk-bug-4249.git
-cd reproduce-adk-bug-4249
+git clone https://github.com/dineshkrishna9999/adk-basic-agent-example.git
+cd adk-basic-agent-example
 ```
 
 2. Create and activate a virtual environment:
@@ -50,53 +57,58 @@ AZURE_API_VERSION=2024-10-01-preview
 AZURE_MODEL=azure/gpt-4.1
 ```
 
-## Usage
+## Reproducing the Bug
 
-Run the basic agent example:
+Run the reproduction script:
 
 ```bash
 python step1_basic_agent.py
 ```
 
-The agent will:
-1. Accept a user message asking to add two numbers
-2. Call the custom `add` function
-3. Return the result in a natural language response
+### Expected Behavior
+The agent should call the `add` function with arguments (1, 2), receive "3" as the result, and format a natural language response.
+
+### Observed Behavior
+[Document the actual bug behavior here when running the script]
 
 ## Project Structure
 
 ```
 .
-├── step1_basic_agent.py    # Main agent implementation
+├── step1_basic_agent.py    # Minimal bug reproduction script
 ├── .env.example            # Environment variables template
 ├── requirements.txt        # Python dependencies
 ├── .gitignore             # Git ignore rules
 └── README.md              # This file
 ```
 
-## Features
+## Code Details
 
-- **Custom Tool Integration**: Demonstrates how to add custom Python functions as agent tools
-- **Azure OpenAI**: Uses Azure OpenAI through LiteLLM for flexible model integration
-- **Session Management**: In-memory session handling for conversation state
-- **Simple Runner**: Shows basic agent execution pattern
+The reproduction script includes:
+- **Custom Tool**: `add(a: int, b: int)` - Returns a string with the sum
+- **Model**: Azure GPT-4.1 via LiteLLM
+- **Session**: In-memory session service
+- **Instruction**: Minimal agent instruction for clarity
 
-## Example Output
+## Environment
 
-```
-The sum of 1 and 2 is 3!
-```
+- Python 3.10+
+- Google ADK Python library
+- LiteLLM for Azure OpenAI integration
+- python-dotenv for environment management
 
-## Development
+## Bug Report
 
-The agent is configured with:
-- Model: Azure GPT-4.1
-- Instruction: "You are a helpful assistant. reply in one short sentence."
-- Tools: `add(a: int, b: int)` function
+**Issue**: #4249  
+**Component**: ADK Python - Tool execution/response handling  
+**Status**: Under investigation
 
 ## Contributing
 
-This is a demonstration project for reproducing and testing ADK behavior. Feel free to fork and experiment!
+If you've encountered similar issues or have insights into this bug, please:
+1. Fork this repository
+2. Document your findings
+3. Submit a pull request with your observations
 
 ## License
 
