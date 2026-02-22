@@ -1,0 +1,9 @@
+# Core ADK dependencies
+google-adk
+python-dotenv
+
+# LLM Integration
+litellm
+
+# Type hints (if needed for older Python versions)
+typing-extensions

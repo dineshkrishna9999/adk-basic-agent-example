@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+adk-debug/
+.venv/
+venv/
+ENV/
+env/
+
+# Environment Variables
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Cache
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# ADK Python source (external dependency)
+adk-python/
+
+# OS
+.DS_Store
+Thumbs.db
